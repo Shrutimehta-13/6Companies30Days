@@ -25,22 +25,23 @@ string encode(string src)
 {     
   //Your code here 
   string ans="";
-  src+='#';
+  //src+='#';
   int count=0;
-  for(int i=1; i<src.length(); i++)
+  for(int i=1; i<=src.length(); i++)
   {
       if(src[i-1]!=src[i])
       {
-          ans += src[i-1];
-          ans += to_string(count+1);
           count++;
+          ans += src[i-1];
+          ans += to_string(count);
+          count=0;
       }
       else
       {
           count++;
       }
+      
   }
   return ans;
 }     
  
-
