@@ -1,50 +1,46 @@
-// { Driver Code Starts
-#include <bits/stdc++.h>
 
+#include<bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
-class Solution{
-public:
-    int *findTwoElement(int *arr, int n) {
-        // code here
-        int temp[n];
-        for(int i=0; i<n; i++)
-        {
-            temp[i]=0;
-        }
-        int *ans = new int [2];
-        for(int i=0; i<n; i++)
-        {
-            if(temp[arr[i]-1]==0)
-                temp[arr[i]-1]=1;
-            else if(temp[arr[i]-1]==1)
-                ans[0]=arr[i];
-        }
-        for(int i=0; i<n; i++)
-        {
-            if(temp[i]==0)
-                ans[1]=i+1;
-        }
-        return ans;
-    }
+class Solution
+{
+	public:
+		void largest(int arr[], int n)
+		{
+			vector <int> v;
+			priority_queue <int> pq;
+			for(int i=0; i<n; i++)
+			{
+				pq.push(arr[i]);
+			}
+			for(int i=0; i<10; i++)
+			{
+				v.push_back(pq.top());
+				pq.pop();
+			}
+			for(int i=0; i<v.size(); i++)
+			{
+				cout<<v[i]<<" ";
+			}
+			cout<<endl;
+		}
 };
 
-// { Driver Code Starts.
-
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        int n;
-        cin >> n;
-        int a[n];
-        for (int i = 0; i < n; i++) {
-            cin >> a[i];
-        }
-        Solution ob;
-        auto ans = ob.findTwoElement(a, n);
-        cout << ans[0] << " " << ans[1] << "\n";
-    }
-    return 0;
-}  // } Driver Code Ends
+int main()
+{
+	int t; 
+	cin>>t;
+	while(t--)
+	{
+		int n;
+		cin>>n;
+		int arr[n];
+		for(int i=0; i<n; i++)
+		{
+			cin>>arr[i];
+		}
+		Solution ob;
+		ob.largest(arr, n);
+		cout<<endl;
+	}
+}
