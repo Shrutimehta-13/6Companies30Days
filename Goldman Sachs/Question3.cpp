@@ -28,7 +28,7 @@ class Solution{
                 end++;
             }
         }
-        end++;
+        return count;
     }
 };
 
