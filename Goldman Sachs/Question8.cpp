@@ -7,6 +7,7 @@ class Solution {
 	public:
 		int CountWays(string str){
 		    // Code here
+		    long long int mod=1000000007;
 		    int n = str.length();
 		    int dp[n+1];
 		    dp[0]=1;
@@ -20,7 +21,7 @@ class Solution {
 		            c1 = dp[i-1];
 		        if(str[i-2]=='1' || str[i-2]=='2' && str[i-1]<'7')
 		            c2 = dp[i-2];
-		        dp[i] = c1 + c2;
+		        dp[i] = (c1 + c2) % mod;
 		    }
 		    return dp[n];
 		}
